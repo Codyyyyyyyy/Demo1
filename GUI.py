@@ -20,6 +20,7 @@ class AutomationGUI:
         self.create_navigation()
         self.create_content_frames()
         self.create_output_area()
+        self.push_process = None
 
     def create_navigation(self):
         """左侧导航菜单"""
@@ -85,6 +86,14 @@ class AutomationGUI:
             state=tk.DISABLED
         )
         self.stop_btn.pack(pady=5)
+# 新增Run Push按钮
+        self.push_btn = ttk.Button(
+            self.station_frame,
+            text="Run Push",
+            command=self.run_push,
+            width=18
+        )
+        self.push_btn.pack(pady=5)
 
     def create_output_area(self):
         """右侧输出区域"""
@@ -109,7 +118,6 @@ class AutomationGUI:
             self.mpa_frame.pack(fill=tk.BOTH, expand=True)
             self.station_frame.pack_forget()
 
-    # 以下方法保持与之前版本相同（start_automation, read_output等）
     def start_automation(self):
         if not self.running:
             self.running = True
@@ -173,7 +181,35 @@ class AutomationGUI:
             self.running = False
             self.start_btn.config(text="Automation Start",state=tk.NORMAL)
             self.stop_btn.config(state=tk.DISABLED)
+            
+    def run_push(self):
+        """运行push.py文件"""
+        script_path = os.path.join(os.path.dirname(__file__), "push.py")
+        try:
+            self.push_process = subprocess.Popen(
+                ["python", script_path],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                bufsize=1,
+                universal_newlines=True
+            )
+            threading.Thread(
+                target=self.read_push_output,
+                daemon=True
+            ).start()
+        except Exception as e:
+            self.output_queue.put(f"Error running push.py: {str(e)}\n")
 
+    def read_push_output(self):
+        """读取push.py的输出并放入队列"""
+        while True:
+            output = self.push_process.stdout.readline()
+            if output == '' and self.push_process.poll() is not None:
+                break
+            if output:
+                self.output_queue.put(output)
+        self.output_queue.put("\n[Push process finished]\n")
 if __name__ == "__main__":
     root = tk.Tk()
     app = AutomationGUI(root)
