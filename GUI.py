@@ -181,7 +181,7 @@ class AutomationGUI:
             self.running = False
             self.start_btn.config(text="Automation Start",state=tk.NORMAL)
             self.stop_btn.config(state=tk.DISABLED)
-            
+
     def run_push(self):
         """运行push.py文件"""
         script_path = os.path.join(os.path.dirname(__file__), "push.py")
