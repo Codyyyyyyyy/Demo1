@@ -63,7 +63,6 @@ class AutomationGUI:
         # 添加Listbox
         listbox = Listbox(self.mpa_frame, height=10)  # 设置高度显示所有选项
         listbox.pack()
-        # 插入数字1到5
         listbox.insert(END, 'Committe','Charging','Map','Service','My')  # 使用END常量逐项添加
         # 默认显示 Station Status
         self.show_frame("station")
