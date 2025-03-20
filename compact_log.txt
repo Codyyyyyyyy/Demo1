@@ -1,0 +1,2 @@
+2025-03-04T09:23:39.466586200Z : ready compact 'D:\AndroidSimulator_Mumu\vms\MuMuPlayerGlobal-12.0-0\data.vdi'
+this time is dry-run, total blocks: 1866, used blocks: 1503, fragment ratio: 0.0718563
