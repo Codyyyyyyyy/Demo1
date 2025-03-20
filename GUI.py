@@ -85,7 +85,7 @@ class AutomationGUI:
             state=tk.DISABLED
         )
         self.stop_btn.pack(pady=5)
-# 新增Run Push按钮
+
         self.push_btn = ttk.Button(
             self.station_frame,
             text="Run Push",
