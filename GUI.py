@@ -88,7 +88,7 @@ class AutomationGUI:
 
         self.push_btn = ttk.Button(
             self.station_frame,
-            text="Run Push",
+            text="Git Push",
             command=self.run_push,
             width=18
         )
