@@ -84,7 +84,7 @@ def set_color(status):
         return 'color: gray'
     if status == 'online':
         return 'color: green'
-    if status == '1error' or status=='2error':
+    if status == '1error' or status=='2error'or status=='3error':
         return 'color: red'
 
 todayspilestatus=pilestatus_cal(-1)
