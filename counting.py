@@ -211,6 +211,6 @@ row_offlineframe=offline_frame.shape[0]
 st.dataframe(offline_frame.style.applymap(set_color),width=2000,height=int(row_offlineframe)*37)
 
 
-powerbi_url = "https://app.powerbi.com/groups/me/reports/b887519e-8be8-402d-a3a5-51e20b64e6d1/d87bd2dfc8d647363391?experience=power-bi"
-iframe_code = f'<iframe width="800" height="600" src="{powerbi_url}" frameborder="0"></iframe>'
-st.markdown(iframe_code, unsafe_allow_html=True)
+# powerbi_url = "https://app.powerbi.com/groups/me/reports/b887519e-8be8-402d-a3a5-51e20b64e6d1/d87bd2dfc8d647363391?experience=power-bi"
+# iframe_code = f'<iframe width="800" height="600" src="{powerbi_url}" frameborder="0"></iframe>'
+# st.markdown(iframe_code, unsafe_allow_html=True)
