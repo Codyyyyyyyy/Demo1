@@ -1,7 +1,7 @@
 import os
 import subprocess
 # 启动模拟器
-subprocess.Popen(r'"D:\AndroidSimulator_Mumu\shell\MuMuPlayer.exe"',shell=True)
+subprocess.Popen(r'"C:\Program Files\MuMuPlayerGlobal-12.0\shell\MuMuPlayer.exe"',shell=True)
 # -*- encoding=utf8 -*-
 #运行前请连接至安卓手机，开启调试，保证手机WIFI连通，PID账号登录后，将app放置在能看到车辆信息的主页面，测试版本My Porsche App V6.2.1
 __author__ = "Cody Chen"
@@ -26,11 +26,11 @@ pillar_count=[]
 #     lines = file.readlines()
 stationName = excel_file_list_version.iloc[:, 0].tolist()
 #创建offline场站txt，并记录当前时间
-file_path2 = f'D:/test/{time.strftime("%Y%m%d")}OfflineStation.txt'
+file_path2 = f'C:/test/{time.strftime("%Y%m%d")}OfflineStation.txt'
 with open(file_path2, 'a',encoding="utf-8") as file:
     file.write('offline station name:' + '\n')
 #创建error场站txt，并记录当前时间
-file_path3 = f'D:/test/{time.strftime("%Y%m%d")}ErrorStation.txt'
+file_path3 = f'C:/test/{time.strftime("%Y%m%d")}ErrorStation.txt'
 with open(file_path3, 'a',encoding="utf-8") as file:
     file.write('error station name:' + '\n')
 #进入app
