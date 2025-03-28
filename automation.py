@@ -126,8 +126,8 @@ for everyStation in stationName:
 
             if exists(Template(r"tpl1730341129190.png", record_pos=(0.386, 0.749), resolution=(1080, 2340))):
                 timestamp = time.strftime("%Y%m%d-%H%M%S")
-                snapshot_path = os.path.join("D:\\","test","ErrorStationDetail",f"screenshot_{timestamp}.png")
-                snapshot(snapshot_path)
+                # snapshot_path = os.path.join("D:\\","test","ErrorStationDetail",f"screenshot_{timestamp}.png")
+                # snapshot(snapshot_path)
                 with open(file_path3, 'a',encoding="utf-8") as file:
                     file.write(everyStation + '\n')
                 findError=find_all(Template(r"tpl1730341129190.png", record_pos=(0.386, 0.749), resolution=(1080, 2340)))
