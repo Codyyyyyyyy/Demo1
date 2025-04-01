@@ -1,6 +1,6 @@
 from git import Git, Repo
 
-local_repo_path = r'D:\AirtestProject\automation.air_mumu'
+local_repo_path = r'C:\automation.air_mumu'
 remote_repo_url = 'git@github.com:Codyyyyyyyy/Demo1.git'
 try:
     # 打开本地仓库
