@@ -126,7 +126,7 @@ for everyStation in stationName:
 
             if exists(Template(r"tpl1730341129190.png", record_pos=(0.386, 0.749), resolution=(1080, 2340))):
                 timestamp = time.strftime("%Y%m%d-%H%M%S")
-                snapshot_path = os.path.join("D:\\","test","ErrorStationDetail",f"screenshot_{timestamp}.png")
+                snapshot_path = os.path.join("C:\\","test","ErrorStationDetail",f"screenshot_{timestamp}.png")
                 snapshot(snapshot_path)
                 with open(file_path3, 'a',encoding="utf-8") as file:
                     file.write(everyStation + '\n')
@@ -138,6 +138,7 @@ for everyStation in stationName:
                     temporary_list.append('online')
             else:
                 temporary_list.append('online')
+            sleep(1)
             touch(Template(r"tpl1714357475610.png", record_pos=(0.408, -0.371), resolution=(1080, 2340)))
             touch(Template(r"tpl1729238251407.png", record_pos=(-0.427, -0.944), resolution=(1080, 2340)))
             sleep(1)
