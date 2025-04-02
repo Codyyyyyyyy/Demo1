@@ -138,12 +138,13 @@ for everyStation in stationName:
                     temporary_list.append('online')
             else:
                 temporary_list.append('online')
-            sleep(1)
-            touch(Template(r"tpl1714357475610.png", record_pos=(0.408, -0.371), resolution=(1080, 2340)))
+            while exists(Template(r"tpl1714357475610.png")):
+                touch(Template(r"tpl1714357475610.png", record_pos=(0.408, -0.371), resolution=(1080, 2340)))
+                sleep(1)
             touch(Template(r"tpl1729238251407.png", record_pos=(-0.427, -0.944), resolution=(1080, 2340)))
-            sleep(1)
-            touch(Template(r"tpl1740984785684.png", record_pos=(-0.406, -0.747), resolution=(1080, 1920)))
-
+            while exists(Template(r"tpl1740984785684.png")):
+                touch(Template(r"tpl1740984785684.png", record_pos=(0.408, -0.371), resolution=(1080, 2340)))
+                sleep(1)
         #若查找不到场站，则将该场站名记录至OfflineStation.txt内
     else:
         with open(file_path2, 'a',encoding="utf-8") as file:
