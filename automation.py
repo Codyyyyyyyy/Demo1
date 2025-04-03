@@ -3,7 +3,8 @@ import subprocess
 # 启动模拟器
 subprocess.Popen(r'"C:\Program Files\MuMuPlayerGlobal-12.0\shell\MuMuPlayer.exe"',shell=True)
 # -*- encoding=utf8 -*-
-#运行前请连接至安卓手机，开启调试，保证手机WIFI连通，PID账号登录后，将app放置在能看到车辆信息的主页面，测试版本My Porsche App V6.2.1
+##运行前请连接至安卓手机，开启调试，保证手机WIFI连通，PID账号登录后，将app放置在能看到车辆信息的主页面，测试版本My Porsche App V6.2.1
+#现在不用了改用mumuplayer12了
 __author__ = "Cody Chen"
 from airtest.core.api import *
 from airtest.aircv import *
@@ -138,6 +139,7 @@ for everyStation in stationName:
                     temporary_list.append('online')
             else:
                 temporary_list.append('online')
+            #下面的操作改成while因为这破app太多次点了没反应导致程序卡死了
             while exists(Template(r"tpl1714357475610.png")):
                 touch(Template(r"tpl1714357475610.png", record_pos=(0.408, -0.371), resolution=(1080, 2340)))
                 sleep(1)
