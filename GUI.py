@@ -5,6 +5,7 @@ import subprocess
 import threading
 import queue
 import os
+import webbrowser
 
 class AutomationGUI:
     def __init__(self, root):
@@ -94,6 +95,14 @@ class AutomationGUI:
         )
         self.push_btn.pack(pady=5)
 
+        self.web_btn = ttk.Button(
+            self.station_frame,
+            text="Open Online Report",
+            command=self.open_web,  # 绑定新方法
+            width=18
+        )
+        self.web_btn.pack(pady=5)
+
     def create_output_area(self):
         """右侧输出区域"""
         right_frame = ttk.Frame(self.root, padding="10")
@@ -128,9 +137,9 @@ class AutomationGUI:
                 ["python", script_path],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
-                text=True,
-                bufsize=1,
-                universal_newlines=True
+                encoding='utf-8',
+                errors='replace',
+                bufsize=1
             )
             
             threading.Thread(
@@ -209,6 +218,10 @@ class AutomationGUI:
             if output:
                 self.output_queue.put(output)
         self.output_queue.put("\n[Push process finished]\n")
+    
+    def open_web(self):
+        """新增的方法：打开浏览器"""
+        webbrowser.open("https://stationcountingtest.streamlit.app/")
 if __name__ == "__main__":
     root = tk.Tk()
     app = AutomationGUI(root)
