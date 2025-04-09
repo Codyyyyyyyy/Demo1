@@ -64,7 +64,7 @@ for everyStation in stationName:
     text(everyStation)
     #通过循环语句等待场站元素出现
     start_time=time.time()
-    while time.time()-start_time<30:
+    while time.time()-start_time<60:
         if poco(textMatches=".*直流空闲.*"):
             break
         time.sleep(0.5)
