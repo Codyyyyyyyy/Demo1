@@ -46,6 +46,8 @@ poco("connect_home_nav_graph").click()
 poco(text="找充电站").click()
 touch(Template(r"tpl1728378914342.png", record_pos=(0.404, -0.091), resolution=(1080, 2340)))
 poco(text="重置全部").click()
+swipe((540,1170),vector=[-0.05, -0.3])
+sleep(2)
 poco(text="保时捷尊享").click()
 poco(text="确认筛选").click()
 # poco("cn.porsche.app:id/map_places_search_button").click()
@@ -112,9 +114,8 @@ for everyStation in stationName:
             #     time.sleep(0.5)
             sleep(1)
             #到这为止
-            touch(Template(r"tpl1736227346436.png", record_pos=(0.377, 0.581), resolution=(1080, 2340)))
+            touch([540,1600])
             #图片中有两个相同的元素，现在用find_all找出所有元素的坐标然后点右边那个
-            
             while time.time()-start_time<30:
                 all_matches = find_all(Template(r"tpl1740987455007.png"))
                 if all_matches is not None:
