@@ -162,7 +162,7 @@ df[time.strftime("%m%d")] = temporary_list
 null_indices = [i for i, x in enumerate(pillar_count) if pd.isnull(x)]
 for i, value in enumerate(pillar_count):
     if i not in null_indices:
-        df.loc[i, 'app桩数'] = value
+        df.loc[i, 'app桩数'] = int(value)
 # df['场站桩数']=pillar_count
 # 将更新后的DataFrame写回Excel文件
 df.to_excel(excel_file, index=False)
